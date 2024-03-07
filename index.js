@@ -1,14 +1,14 @@
 import app from './src/app.js';
 import sequelize from './src/database/database.js';
 
-import './src/models/SoilSampleActivity.js';
-import './src/models/FertilizationAreaActivity.js';
+// import './src/models/SoilSampleActivity.js';
+// import './src/models/FertilizationAreaActivity.js';
 
 const PORT = 5173
 
 async function main() {
   try {
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: false });
     app.listen(PORT);
     console.log('Server is listening on port: ', PORT);
   } catch (error) {
