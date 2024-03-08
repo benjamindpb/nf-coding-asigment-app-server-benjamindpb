@@ -30,6 +30,41 @@ export const createSoilSample = async (req, res) => {
   });
 };
 
+export const getSoilSampleById = (req, res) => {
+  const { id } = req.body;
+  const soilSample = SoilSampleActivity.findOne({
+    where: {
+      id
+    }
+  });
+  if (soilSample) {
+    return res.send({
+      msg: 'soil sample found',
+      soilSample,
+    });
+  }
+  return res.send({
+    msg: 'soil sample not found'
+  })
+}
+
+export const deleteSoilSampleById = (req, res) => {
+  const { id } = req.body;
+  const deletedSoilSample = SoilSampleActivity.destroy({
+    where: {
+      id,
+    },
+  });
+  if (deletedSoilSample > 0) {
+    return res.send({
+      msg: 'soil sample deleted'
+    })
+  }
+  return res.send({
+    msg: 'soil sample not found'
+  })
+}
+
 export const getFertilizationAreas = async (req, res) => {
   const soilSamples = await FertilizationAreaActivity.findAll();
   return res.send({
@@ -70,3 +105,38 @@ export const createFertilizationArea = async (req, res) => {
     newFertilizationArea,
   })
 };
+
+export const getFertilizationAreaById = (req, res) => {
+  const { id } = req.body;
+  const fertilizationArea = FertilizationAreaActivity.findOne({
+    where: {
+      id
+    }
+  });
+  if (fertilizationArea) {
+    return res.send({
+      msg: 'fertilization area found',
+      soilSample,
+    });
+  }
+  return res.send({
+    msg: 'fertilization area not found'
+  })
+};
+
+export const deleteFertilizationAreaById = (req, res) => {
+  const { id } = req.body;
+  const deletedFertilizationArea = FertilizationAreaActivity.destroy({
+    where: {
+      id,
+    },
+  });
+  if (deletedFertilizationArea > 0) {
+    return res.send({
+      msg: 'fertilization area deleted'
+    })
+  }
+  return res.send({
+    msg: 'fertilization area not found'
+  })
+}
