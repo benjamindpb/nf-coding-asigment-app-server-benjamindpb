@@ -3,7 +3,7 @@
 
 ## Candidate: Benjamín del Pino Badilla
 
-Server from the [NF Codingg Assigment](https://github.com/benjamindpb/nf-coding-asigment-app-benjamindpb) app.
+Server from the [NF Coding Assigment](https://github.com/benjamindpb/nf-coding-asigment-app-benjamindpb) app.
 
 ## Database
 
